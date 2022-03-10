@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
-import { Grid, Paper, makeStyles } from '@material-ui/core';
+import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
+import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 
 const speechsdk = require('microsoft-cognitiveservices-speech-sdk')
 
@@ -22,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
         padding: '10px',
         border: '2px solid black',
         margin: '10px',
+    },
+    margin: {
+        marginTop: 20,
+        width: '200px',
+        marginLeft: '175px'
     },
     displayText: {
         fontSize: '30px',
@@ -140,9 +146,10 @@ const Translator = () => {
                             </NativeSelect>
                         </FormControl>
                     </Box>
-                    <div className="col-6">
-                        <button className="fas fa-microphone fa-lg mr-2" onClick={() => sttFromMic(sourceLanguage, targetLanguage)}> Start </button>
-                    </div>
+                    <Button variant="contained" color="inherit" fullWidth startIcon={<SettingsVoiceIcon fontSize="large" />} onClick={() => sttFromMic(sourceLanguage, targetLanguage)}
+                        className={classes.margin}>
+                        Start speaking
+                    </Button>
                 </Paper> : null}
             <div className={classes.displayText}>
                 <code>{displayText}</code>
