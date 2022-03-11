@@ -8,7 +8,7 @@ import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import { io } from 'socket.io-client';
 
-const socket = io(process.env.REACT_APP_SERVER_URL);
+const socket = io('http://localhost:5000');
 const speechsdk = require('microsoft-cognitiveservices-speech-sdk')
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +50,7 @@ const Translator = () => {
     })
 
     const sttFromMic = (srcLanguage, targetLanguage) => {
-        const speechConfig = speechsdk.SpeechTranslationConfig.fromSubscription(process.env.REACT_APP_SUBSCRIPTION_KEY, 'eastus');
+        const speechConfig = speechsdk.SpeechTranslationConfig.fromSubscription('34ae0ab8255442c0b4b493ae07cefbab', 'eastus');
         speechConfig.speechRecognitionLanguage = srcLanguage;
         speechConfig.addTargetLanguage(targetLanguage);
 
