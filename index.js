@@ -18,11 +18,17 @@ app.get('/', (req, res) => {
 });
 
 io.on("connection", (socket) => {
+	console.log("Connecteddddd")
 	socket.emit("me", socket.id);
 
 	socket.on("disconnect", () => {
 		socket.broadcast.emit("callEnded")
 	});
+
+	socket.on('chat.message', data => {
+        console.log('[SOCKET] Chat.message => ', data)
+		socket.broadcast.emit('chat.message', data)
+    })
 
 	socket.on("callUser", ({ userToCall, signalData, from, name }) => {
 		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
