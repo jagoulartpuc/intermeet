@@ -8,7 +8,7 @@ import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://intermeet-server.herokuapp.com');
 const speechsdk = require('microsoft-cognitiveservices-speech-sdk')
 
 const useStyles = makeStyles((theme) => ({
