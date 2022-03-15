@@ -8,7 +8,7 @@ import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://intermeet-server.herokuapp.com');
 const speechsdk = require('microsoft-cognitiveservices-speech-sdk')
 
 const useStyles = makeStyles((theme) => ({
@@ -128,8 +128,14 @@ const Translator = () => {
                                 }}
                             >
                                 <option value={'pt-BR'}>Portuguese</option>
-                                <option value={'en-US'}>English</option>
-                                <option value={'es-ES'}>Spanish</option>
+                                <option value={'es-AR'}>Spanish (Latin)</option>
+                                <option value={'es-ES'}>Spanish (Europian)</option>
+                                <option value={'en-US'}>English (Standard)</option>
+                                <option value={'en-IN'}>English (India)</option>
+                                <option value={'hi-IN'}>Hindi</option>                                
+                                <option value={'it-IT'}>Italian</option>
+                                <option value={'de-DE'}>German</option>
+                                <option value={'fr-FR'}>French</option>
                             </NativeSelect>
                         </FormControl>
 
@@ -149,6 +155,10 @@ const Translator = () => {
                                 <option value={'pt'}>Portuguese</option>
                                 <option value={'en'}>English</option>
                                 <option value={'es'}>Spanish</option>
+                                <option value={'hi'}>Hindi</option>                                
+                                <option value={'it'}>Italian</option>
+                                <option value={'de'}>German</option>
+                                <option value={'fr'}>French</option>
                             </NativeSelect>
                         </FormControl>
                     </Box>

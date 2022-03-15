@@ -51,7 +51,7 @@ const Sidebar = ({ children }) => {
             <Grid item xs={12} md={6} className={classes.padding}>
               <Typography gutterBottom variant="h6">Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-              <CopyToClipboard text={me} className={classes.margin}>
+              <CopyToClipboard text={me + '/' + name} className={classes.margin}>
                 <Button variant="contained" color="inherit" fullWidth startIcon={<Assignment fontSize="large" />}>
                   Copy Your ID
                 </Button>
