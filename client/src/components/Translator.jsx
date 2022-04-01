@@ -50,7 +50,7 @@ const Translator = () => {
     })
 
     const sttFromMic = (srcLanguage, targetLanguage) => {
-        const speechConfig = speechsdk.SpeechTranslationConfig.fromSubscription('34ae0ab8255442c0b4b493ae07cefbab', 'eastus');
+        const speechConfig = speechsdk.SpeechTranslationConfig.fromSubscription("414dbfc5c95942619fb4b532b334131d", "eastus");
         speechConfig.speechRecognitionLanguage = srcLanguage;
         speechConfig.addTargetLanguage(targetLanguage);
 
@@ -136,6 +136,8 @@ const Translator = () => {
                                 <option value={'it-IT'}>Italian</option>
                                 <option value={'de-DE'}>German</option>
                                 <option value={'fr-FR'}>French</option>
+                                <option value={'th-TH'}>Thai</option>
+                                
                             </NativeSelect>
                         </FormControl>
 
@@ -159,6 +161,7 @@ const Translator = () => {
                                 <option value={'it'}>Italian</option>
                                 <option value={'de'}>German</option>
                                 <option value={'fr'}>French</option>
+                                <option value={'th'}>Thai</option>
                             </NativeSelect>
                         </FormControl>
                     </Box>
@@ -173,7 +176,6 @@ const Translator = () => {
         </Grid >
 
     );
-
 }
 
 export default Translator;

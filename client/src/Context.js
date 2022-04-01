@@ -36,15 +36,14 @@ const ContextProvider = ({ children }) => {
     setCallAccepted(true);
 
     const peer = new Peer({
-      initiator: false, trickle: false, stream, config: {
-        'iceServers': [
-          { urls: 'stun:stun.l.google.com:19302' },
-          { urls: 'turn:numb.viagenie.ca', credential: 'muazkh', username: 'webrtc@live.com' }
-        ]
-      }
+      initiator: false, trickle: false, stream,
+      config: {'iceServers': [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'turn:45.32.172.107:3478', username: 'test', credential: 'test' }
+      ]}
     });
 
-    peer.on('signal', (data) => {
+    peer.on('signal', (data) => { 
       socket.emit('answerCall', { signal: data, to: call.from });
     });
 
@@ -58,13 +57,11 @@ const ContextProvider = ({ children }) => {
   };
 
   const callUser = (id) => {
-    const peer = new Peer({
-      initiator: true, trickle: false, stream, config: {
-        'iceServers': [
-          { urls: 'stun:stun.l.google.com:19302' },
-          { urls: 'turn:numb.viagenie.ca', credential: 'muazkh', username: 'webrtc@live.com' }
-        ]
-      }
+    const peer = new Peer({initiator: true, trickle: false, stream,
+      config: {'iceServers': [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'turn:45.32.172.107:3478', username: 'test', credential: 'test' }
+      ]}
     });
     setNameReceived(id.split("/")[1]);
     peer.on('signal', (data) => {
